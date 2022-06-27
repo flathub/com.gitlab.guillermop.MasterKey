@@ -83,8 +83,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.3.0/master-key-v1.3.0.tar.gz",
-                    "sha256": "85795ca4499df0e52c7a465fcb2643640d879ddc60cd1a7f48440e8afd3567fe"
+                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.3.1/master-key-v1.3.1.tar.gz",
+                    "sha256": "8ee7c63386be03505dfd7c942d010ded32585651a5e3469553cef63f98955faa"
                 }
             ]
         }
