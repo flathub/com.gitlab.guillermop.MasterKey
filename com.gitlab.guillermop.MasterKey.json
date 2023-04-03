@@ -1,7 +1,7 @@
 {
     "app-id" : "com.gitlab.guillermop.MasterKey",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "42",
+    "runtime-version" : "44",
     "sdk" : "org.gnome.Sdk",
     "command" : "master-key",
     "finish-args" : [
@@ -22,7 +22,7 @@
         "*.a"
     ],
     "modules" : [
-	{
+        {
             "name" : "tcl",
             "subdir" : "unix",
             "config-opts" : [
@@ -38,13 +38,13 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.8/tcl8.6.8-src.tar.gz",
-                    "sha256" : "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
+                    "url" : "https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.13-src.tar.gz",
+                    "sha256" : "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
                 }
             ]
         },
         {
-            "name" : "sqlcipher-4.4.2",
+            "name" : "sqlcipher-4.5.2",
             "config-opts" : [
                 "--enable-tempstore=yes",
                 "CFLAGS=-DSQLITE_HAS_CODEC",
@@ -57,22 +57,22 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://github.com/sqlcipher/sqlcipher/archive/v4.4.2.tar.gz",
-                    "sha256" : "87458e0e16594b3ba6c7a1f046bc1ba783d002d35e0e7b61bb6b7bb862f362a7"
+                    "url" : "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.5.3.tar.gz",
+                    "sha256" : "5c9d672eba6be4d05a9a8170f70170e537ae735a09c3de444a8ad629b595d5e2"
                 }
             ]
         },
         {
-            "name" : "libpwquality",
-            "buildsystem" : "autotools",
-            "config-opts": [
-                "--with-python-binary=python3"
+            "name" : "python3-zxcvbn",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"zxcvbn\" --no-build-isolation"
             ],
             "sources" : [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.4/libpwquality-1.4.4.tar.bz2",
-                    "sha256": "d43baf23dc6887fe8f8e9b75cabaabc5f4bbbaa0f9eff44278d276141752a545"
+                    "type" : "file",
+                    "url" : "https://files.pythonhosted.org/packages/54/67/c6712608c99e7720598e769b8fb09ebd202119785adad0bbce25d330243c/zxcvbn-4.4.28.tar.gz",
+                    "sha256" : "151bd816817e645e9064c354b13544f85137ea3320ca3be1fb6873ea75ef7dc1"
                 }
             ]
         },
@@ -83,8 +83,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.3.1/master-key-v1.3.1.tar.gz",
-                    "sha256": "8ee7c63386be03505dfd7c942d010ded32585651a5e3469553cef63f98955faa"
+                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.4.0/master-key-v1.4.0.tar.gz",
+                    "sha256": "a8df773c41025cca36b4dfb8bbd5dadbc5b4624c04fcef4107ffe6efb54493cf"
                 }
             ]
         }
