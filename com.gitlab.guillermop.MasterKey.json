@@ -1,7 +1,7 @@
 {
-    "app-id" : "com.gitlab.guillermop.MasterKey",
+    "id" : "com.gitlab.guillermop.MasterKey",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "44",
+    "runtime-version" : "45",
     "sdk" : "org.gnome.Sdk",
     "command" : "master-key",
     "finish-args" : [
@@ -77,14 +77,25 @@
             ]
         },
         {
+            "name" : "blueprint-compiler",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.10.0/blueprint-compiler-v0.10.0.tar.gz",
+                    "sha256" : "2bc729b36897d0959a9890fb0997c9847aa9d2fc9356520bd8a46ed0b51ff4c0"
+                }
+            ]
+        },
+        {
             "name" : "master-key",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.4.0/master-key-v1.4.0.tar.gz",
-                    "sha256": "a8df773c41025cca36b4dfb8bbd5dadbc5b4624c04fcef4107ffe6efb54493cf"
+                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.5.0/master-key-v1.5.0.tar.gz",
+                    "sha256": "8a4a902166d39dcc591d0db474e7c14aafddecf47880435594838abf71fdb7d5"
                 }
             ]
         }
