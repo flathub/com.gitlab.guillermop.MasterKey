@@ -1,7 +1,7 @@
 {
     "id" : "com.gitlab.guillermop.MasterKey",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "46",
+    "runtime-version" : "47",
     "sdk" : "org.gnome.Sdk",
     "command" : "master-key",
     "finish-args" : [
@@ -94,8 +94,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.6.1/master-key-v1.6.1.tar.gz",
-                    "sha256": "29418aef20007f901d468a5fd9d5a2cdd1a914a5b7d837a440ade9c8114d170b"
+                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.6.2/master-key-v1.6.2.tar.gz",
+                    "sha256": "2657b15ebf168c6132ee58407c3d840eb4d406a3a72da9c7cf6d1f3d2b5d7cc2"
                 }
             ]
         }
