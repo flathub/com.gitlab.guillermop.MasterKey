@@ -22,68 +22,38 @@
         "*.a"
     ],
     "modules" : [
+        "python3-modules.json",
         {
-            "name" : "tcl",
-            "subdir" : "unix",
-            "config-opts" : [
-                "--enable-shared=no"
-            ],
-            "build-options" : {
-                "no-debuginfo" : true
-            },
-            "cleanup" : [
-                "/bin",
-                "/man"
-            ],
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://downloads.sourceforge.net/sourceforge/tcl/tcl8.6.13-src.tar.gz",
-                    "sha256" : "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
-                }
-            ]
-        },
-        {
-            "name" : "sqlcipher-4.5.2",
-            "config-opts" : [
+            "name": "sqlcipher",
+            "config-opts": [
+                "--disable-tcl",
                 "--enable-tempstore=yes",
                 "CFLAGS=-DSQLITE_HAS_CODEC",
                 "LDFLAGS=-lcrypto -lm"
             ],
-            "cleanup" : [
+            "cleanup": [
                 "/bin",
                 "/man"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "archive",
-                    "url" : "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.5.3.tar.gz",
-                    "sha256" : "5c9d672eba6be4d05a9a8170f70170e537ae735a09c3de444a8ad629b595d5e2"
+                    "type": "archive",
+                    "url": "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.6.1.tar.gz",
+                    "sha256": "d8f9afcbc2f4b55e316ca4ada4425daf3d0b4aab25f45e11a802ae422b9f53a3"
                 }
             ]
         },
         {
-            "name" : "python3-zxcvbn",
-            "buildsystem" : "simple",
-            "build-commands" : [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"zxcvbn\" --no-build-isolation"
+            "name": "blueprint-compiler",
+            "buildsystem": "meson",
+            "cleanup": [
+                "*"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "file",
-                    "url" : "https://files.pythonhosted.org/packages/54/67/c6712608c99e7720598e769b8fb09ebd202119785adad0bbce25d330243c/zxcvbn-4.4.28.tar.gz",
-                    "sha256" : "151bd816817e645e9064c354b13544f85137ea3320ca3be1fb6873ea75ef7dc1"
-                }
-            ]
-        },
-        {
-            "name" : "blueprint-compiler",
-            "buildsystem" : "meson",
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.12.0/blueprint-compiler-v0.12.0.tar.gz",
-                    "sha256" : "6dbb4ea851cec164030abded5949ea77ff92032e23527e1c0597d7efe0c36a81"
+                    "type": "archive",
+                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.14.0/blueprint-compiler-v0.14.0.tar.gz",
+                    "sha256": "05faf3810cb76d4e2d2382c6a7e6c8096af27e144e2260635c97f6a173d67234"
                 }
             ]
         },
@@ -94,8 +64,8 @@
             "sources" : [
                 {
                     "type" : "archive",
-                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.6.3/master-key-v1.6.3.tar.gz",
-                    "sha256": "dd3e056a030ee030e5cce75fee31f7801d5fdb9e35609b481fcf25e073dcf6cc"
+                    "url" : "https://gitlab.com/guillermop/master-key/-/archive/v1.7.0/master-key-v1.7.0.tar.gz",
+                    "sha256": "cea702da5397a228b887d3eb36f5d57c9b43ae69d41c6b1e70989d6f39decc77"
                 }
             ]
         }
