@@ -1,16 +1,16 @@
 {
-    "id" : "com.gitlab.guillermop.MasterKey",
-    "runtime" : "org.gnome.Platform",
-    "runtime-version" : "49",
-    "sdk" : "org.gnome.Sdk",
-    "command" : "master-key",
-    "finish-args" : [
+    "id": "com.gitlab.guillermop.MasterKey",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "50",
+    "sdk": "org.gnome.Sdk",
+    "command": "master-key",
+    "finish-args": [
         "--device=dri",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland"
     ],
-    "cleanup" : [
+    "cleanup": [
         "/include",
         "/lib/pkgconfig",
         "/man",
@@ -21,37 +21,19 @@
         "*.la",
         "*.a"
     ],
-    "modules" : [
+    "modules": [
         "python3-modules.json",
-        {
-            "name" : "tcl",
-            "subdir" : "unix",
-            "build-options" : {
-                "no-debuginfo" : true
-            },
-            "cleanup" : [
-                "/bin",
-                "/man"
-            ],
-            "post-install" : [
-                "chmod u+w ${FLATPAK_DEST}/lib/libtcl*.so"
-            ],
-            "sources" : [
-                {
-                    "type" : "archive",
-                    "url" : "https://prdownloads.sourceforge.net/tcl/tcl8.6.16-src.tar.gz",
-                    "sha256" : "91cb8fa61771c63c262efb553059b7c7ad6757afa5857af6265e4b0bdc2a14a5"
-                }
-            ]
-        },
         {
             "name": "sqlcipher",
             "config-opts": [
                 "--disable-tcl",
-                "--enable-tempstore=yes",
-                "CFLAGS=-DSQLITE_HAS_CODEC",
-                "LDFLAGS=-lcrypto -lm"
+                "--with-tempstore=yes",
+                "--dll-basename=libsqlcipher"
             ],
+            "build-options": {
+                "cflags": "-DSQLITE_HAS_CODEC -DSQLITE_EXTRA_INIT=sqlcipher_extra_init -DSQLITE_EXTRA_SHUTDOWN=sqlcipher_extra_shutdown",
+                "ldflags": "-lcrypto -Wl,-soname,libsqlcipher.so.0"
+            },
             "cleanup": [
                 "/bin",
                 "/man"
@@ -59,20 +41,31 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/sqlcipher/sqlcipher/archive/refs/tags/v4.6.1.tar.gz",
-                    "sha256": "d8f9afcbc2f4b55e316ca4ada4425daf3d0b4aab25f45e11a802ae422b9f53a3"
+                    "url": "https://github.com/sqlcipher/sqlcipher/archive/v4.14.0.tar.gz",
+                    "sha256": "67fb27e967a4a6968c0905691c89c908e7250dddc581b887c19ef981c737e473",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 11213,
+                        "stable-only": true,
+                        "url-template": "https://github.com/sqlcipher/sqlcipher/archive/v$version.tar.gz"
+                    }
                 }
             ]
         },
         {
-            "name" : "master-key",
-            "builddir" : true,
-            "buildsystem" : "meson",
-            "sources" : [
+            "name": "master-key",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.com/guillermop/master-key.git",
-                    "tag": "v1.8.0"
+                    "type": "git",
+                    "url": "https://gitlab.com/guillermop/master-key.git",
+                    "tag": "v1.9.0",
+                    "commit": "246a5298c875b2f8f0be0ee7a4bc5b21e17b0ace",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 }
             ]
         }
