@@ -60,8 +60,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/guillermop/master-key.git",
-                    "tag": "v1.9.0",
-                    "commit": "246a5298c875b2f8f0be0ee7a4bc5b21e17b0ace",
+                    "tag": "v1.9.1",
+                    "commit": "fd6918e19cc47a51e1fd0e2b2f98af679555fcaf",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
