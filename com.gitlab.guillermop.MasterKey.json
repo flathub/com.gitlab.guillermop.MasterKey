@@ -13,13 +13,12 @@
     "cleanup": [
         "/include",
         "/lib/pkgconfig",
-        "/man",
-        "/share/doc",
-        "/share/gtk-doc",
         "/share/man",
-        "/share/pkgconfig",
         "*.la",
         "*.a"
+    ],
+    "cleanup-commands": [
+        "python3 -m compileall --invalidation-mode=unchecked-hash /app"
     ],
     "modules": [
         "python3-modules.json",
@@ -35,8 +34,7 @@
                 "ldflags": "-lcrypto -Wl,-soname,libsqlcipher.so.0"
             },
             "cleanup": [
-                "/bin",
-                "/man"
+                "/bin"
             ],
             "sources": [
                 {
